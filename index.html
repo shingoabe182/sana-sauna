@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サウナ施設HP</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="site-wrapper">
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo"></a>
+            <nav class="nav-menu">
+                <a href="#concept">コンセプト</a>
+                <a href="#about">ABOUT</a>
+                <a href="#facility">施設紹介</a>
+                <a href="#usage">ご利用案内</a>
+                <a href="#faq">Q&A</a>
+                <a href="#access">アクセス</a>
+            </nav>
+
+            <!-- アイコンボタン群 -->
+            <div class="header-icon-buttons">
+                <a href="#" class="icon-button" aria-label="LINEで友達追加">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 268" width="28" height="28"><path d="M227.5 0h-187C18.2 0 0 18.2 0 40.5v187c0 22.3 18.2 40.5 40.5 40.5h187c22.3 0 40.5-18.2 40.5-40.5v-187C268 18.2 249.8 0 227.5 0z" fill="#00b900"/><path d="M183.8 134.4c0-4.2-1.9-8.3-5.3-11.1-3.1-2.5-7-4-11.1-4H99.9c-4.5 0-8.7 1.9-11.6 5.3-2.8 3.1-4.4 7.3-4.4 11.6v.2c0 4.2 1.6 8.4 4.7 11.4 3 3 7.1 4.7 11.3 4.7h2.5v21.9c0 5.3 4.2 9.6 9.6 9.6h.2c5.3 0 9.6-4.2 9.6-9.6v-21.9h11.4c4.2 0 8.3-1.6 11.4-4.7 3-3 4.7-7.1 4.7-11.3v-.2zM164.4 99.9c0-5.3-4.2-9.6-9.6-9.6h-50.5c-5.3 0-9.6 4.2-9.6 9.6v.2c0 5.3 4.2 9.6 9.6 9.6h50.5c5.3 0 9.6-4.2 9.6-9.6v-.2zM134.4 65.3c-9.3 0-17.3 3.6-23.4 9.6-6.2 6.2-9.6 14.1-9.6 23.4v.2c0 9.3 3.6 17.3 9.6 23.4 6.2 6.2 14.1 9.6 23.4 9.6h.2c9.3 0 17.3-3.6 23.4-9.6 6.2-6.2 9.6-14.1 9.6-23.4v-.2c0-9.3-3.6-17.3-9.6-23.4-6.2-6.2-14.2-9.6-23.6-9.6z" fill="#fff"/></svg>
+                </a>
+                <a href="#" class="icon-button" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z" fill="#fff"/></svg>
+                </a>
+                <a href="#" class="icon-button" aria-label="ご予約">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64h48V32c0-17.7 14.3-32 32-32zM0 192h448v272c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm192 80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V272c0-8.8 7.2-16 16-16s16 7.2 16 16zm96 0v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V272c0-8.8 7.2-16 16-16s16 7.2 16 16zm-96 96v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16s16 7.2 16 16zm96 0v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16s16 7.2 16 16z" fill="#fff"/></svg>
+                </a>
+            </div>
+
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- メインビジュアル -->
+        <section id="hero">
+            <h1 data-aos="fade-in" data-aos-duration="3000">sana-sauna</h1>
+            <a href="#usage" class="hero-reserve-button btn--primary animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000">ご予約</a>
+        </section>
+
+        <!-- コンセプト -->
+        <section id="concept" data-aos="relax-animation" data-aos-duration="1000">
+            <h2>コンセプト</h2>
+            <p>都会の喧騒を忘れさせる、至極のプライベート空間。</p>
+            <svg class="concept-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><path fill="#1a1a1a" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,53.3C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,59,1392,50.7L1440,43L1440,100L1392,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z"></path></svg>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2 data-aos="fade-up" data-aos-duration="1000">ABOUT</h2>
+            <div class="about-list">
+                <div class="about-item animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="about-icon">ICON</div>
+                    <h3>完全個室</h3>
+                    <p>プライベートな空間で、心ゆくまでサウナをお楽しみいただけます。</p>
+                </div>
+                <div class="about-item animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="about-icon">ICON</div>
+                    <h3>寝サウナ</h3>
+                    <p>横になりながらリラックスできる、特別なサウナ体験を。</p>
+                </div>
+                <div class="about-item animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="about-icon">ICON</div>
+                    <h3>超高音多湿</h3>
+                    <p>本格的なセッティングで、体の芯から温まります。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 施設紹介 -->
+        <section id="facility">
+            <h2 data-aos="fade-up" data-aos-duration="1000">施設紹介</h2>
+            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500">
+                <div class="room-image">
+                    <img src="assets/sauna-room1.jpg" alt="サウナルームの画像">
+                </div>
+                <div class="room-description">
+                    <h3>サウナルーム</h3>
+                    <p>ここにサウナルームの説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
+                    <dl class="room-specs">
+                        <div><dt>室温</dt><dd>90℃ 〜 100℃</dd></div>
+                        <div><dt>収容人数</dt><dd>2名</dd></div>
+                        <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/sauna-room2.jpg" alt="サウナルーム2の画像">
+                </div>
+                <div class="room-description">
+                    <h3>サウナルーム２</h3>
+                    <p>ここにサウナルーム２の説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
+                    <dl class="room-specs">
+                        <div><dt>室温</dt><dd>80℃ 〜 90℃</dd></div>
+                        <div><dt>収容人数</dt><dd>2名</dd></div>
+                        <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/water-bath1.jpg" alt="水風呂の画像">
+                </div>
+                <div class="room-description">
+                    <h3>水風呂</h3>
+                    <p>ここに水風呂の説明文が入ります。サウナで火照った体を瞬時にクールダウンさせ、究極の「ととのい」へと導きます。</p>
+                    <dl class="room-specs">
+                        <div><dt>水温</dt><dd>15℃</dd></div>
+                        <div><dt>深さ</dt><dd>100cm</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/relax-room.jpg" alt="休憩スペースの画像">
+                </div>
+                <div class="room-description">
+                    <h3>休憩スペース</h3>
+                    <p>ここに休憩スペースの説明文が入ります。心と体を落ち着かせるための特別な空間です。</p>
+                    <dl class="room-specs">
+                        <div><dt>設備</dt><dd>リクライニングチェア、ウォーターサーバー</dd></div>
+                        <div><dt>特徴</dt><dd>静寂な空間</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/powder-room.jpg" alt="パウダールームの画像">
+                </div>
+                <div class="room-description">
+                    <h3>パウダールーム</h3>
+                    <p>ここにパウダールームの説明文が入ります。各種アメニティを完備しております。</p>
+                    <dl class="room-specs">
+                        <div><dt>アメニティ</dt><dd>化粧水、乳液、ドライヤー</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/rounge.jpg" alt="ラウンジの画像">
+                </div>
+                <div class="room-description">
+                    <h3>ラウンジ</h3>
+                    <p>ここにラウンジの説明文が入ります。サウナ後のリラックスタイムにご利用ください。</p>
+                    <dl class="room-specs">
+                        <div><dt>設備</dt><dd>ソファ、雑誌、ドリンクバー</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="assets/shop.jpg" alt="ショップの画像">
+                </div>
+                <div class="room-description">
+                    <h3>ショップ</h3>
+                    <p>ここにショップの説明文が入ります。オリジナルのサウナグッズを販売しております。</p>
+                    <dl class="room-specs">
+                        <div><dt>取扱商品</dt><dd>サウナハット、タオル、ステッカー</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- ご利用案内 -->
+        <section id="usage">
+            <h2>ご利用案内</h2>
+            <p>当サウナ施設は会員制になりますので、以下の手順でご利用ください。</p>
+            <div class="flow-container">
+                <ol class="flow-list">
+                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000">
+                        <h4>STEP 1</h4>
+                        <p><strong>会員登録</strong><br>まずは会員登録ページから、必要情報をご入力ください。</p>
+                    </li>
+                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
+                        <h4>STEP 2</h4>
+                        <p><strong>ご予約</strong><br>会員ページにログインし、ご希望の日時でご予約ください。</p>
+                    </li>
+                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+                        <h4>STEP 3</h4>
+                        <p><strong>ご来店</strong><br>予約時間にご来店ください。スタッフがご案内します。</p>
+                    </li>
+                </ol>
+            </div>
+            <div class="usage-buttons">
+                <a href="#" class="btn btn--primary">会員登録はこちら</a>
+                <a href="#" class="btn btn--secondary">予約ページへ</a>
+            </div>
+        </section>
+
+        <!-- Q&A -->
+        <section id="faq" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Q&A</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>Q. 予約は必要ですか？</summary>
+                    <div class="faq-answer">
+                        <p>はい、当施設は完全予約制となっております。会員登録後、予約ページよりご予約ください。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Q. 持ち物はありますか？</summary>
+                    <div class="faq-answer">
+                        <p>タオル、サウナマット、各種アメニティをご用意しておりますので、手ぶらでお越しいただけます。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Q. 駐車場はありますか？</summary>
+                    <div class="faq-answer">
+                        <p>申し訳ございませんが、専用駐車場はございません。近隣のコインパーキングをご利用ください。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- アクセス -->
+        <section id="access" data-aos="fade-up" data-aos-duration="1000">
+            <h2>アクセス</h2>
+            <div class="access-container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.32533893660366!2d133.8864763048585!3d34.63947877741324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553f89f87827ac7%3A0xbf69f0496d668359!2z44CSNzAwLTA5NzYg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66L6w5bez77yR77yZ4oiS77yR77yQ77yW!5e0!3m2!1sja!2sjp!4v1757129595762!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="address-container">
+                    <h3>店舗情報</h3>
+<p>
+    <strong>sana sauna</strong><br>
+    〒700-0976 岡山県岡山市北区辰巳１９−１０１<br><br>
+    <strong>アクセス:</strong><br>
+    JR山陽本線北長瀬駅徒歩17分<br>
+    岡山駅より車で20分
+</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <footer>
+        <!-- フッター: コピーライトなど -->
+        <p>&copy; 2025 sana-sauna All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+/* 基本的なリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* スムーズスクロール */
+    scroll-padding-top: 80px; /* 固定ヘッダーの高さ分を考慮 */
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #1a1a1a; /* 画像が読み込めない場合のフォールバック */
+    color: #FFFFFB; /* 全体の文字色 */
+    line-height: 1.8;
+}
+
+.site-wrapper {
+    position: relative;
+    z-index: 0; /* 重ね順の基準点 */
+    overflow-x: hidden; /* AOSアニメーションによる横スクロールを防止 */
+    background-image: url('assets/main-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.site-wrapper::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, rgba(238, 119, 82, 0.25), rgba(231, 60, 126, 0.25), rgba(35, 166, 213, 0.25), rgba(35, 213, 171, 0.25));
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -1; /* 背景画像の上に、コンテンツの下に配置 */
+    display: none; /* グラデーションを非表示にする */
+}
+
+/* 見出しのスタイル */
+h1, h2 {
+    font-family: "Times New Roman", "Yu Mincho", "MS PMincho", serif;
+    color: #FFFFFB; /* 全体の文字色に統一 */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+
+/* 各セクションの基本スタイル */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    padding: 100px 20px;
+    text-align: center;
+    border-bottom: none; /* セクション間の区切り線を非表示 */
+}
+
+/* ABOUTセクション */
+#about .about-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* アイテム間の隙間 */
+    margin-top: 50px;
+    text-align: left; /* アイテム内のテキストは左揃えに */
+}
+
+#about .about-item {
+    width: 30%; /* 3列表示の目安 */
+    min-width: 280px; /* 最小幅 */
+    padding: 20px;
+    border: none; /* 枠線を削除 */
+    border-radius: 30px; /* 丸に近い四角 */
+    background-color: rgba(68, 68, 68, 0.8); /* 背景色を設定 */
+}
+
+#about .about-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#about .about-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: left; /* 見出しも左揃えに */
+}
+
+/* 施設紹介セクション */
+#facility .room-container {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* 画像とテキストの間隔 */
+    margin-top: 60px;
+    text-align: left;
+}
+
+#facility .room-container:first-of-type {
+    margin-top: 50px;
+}
+
+/* 左右反転レイアウト */
+#facility .room-container.layout-reverse {
+    flex-direction: row-reverse;
+}
+
+#facility .room-image,
+#facility .room-description {
+    flex: 1; /* 1:1の比率で幅を分ける */
+}
+
+#facility .room-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* 少し四角く、モコモコ感を残す */
+}
+
+#facility .room-description h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#facility .room-specs {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+}
+
+#facility .room-specs div {
+    display: flex;
+    border-bottom: 1px solid #444;
+}
+
+#facility .room-specs dt,
+#facility .room-specs dd {
+    padding: 15px;
+}
+
+#facility .room-specs dt {
+    flex-basis: 30%;
+    font-weight: bold;
+    border-right: 1px solid #444;
+}
+
+#facility .room-specs dd {
+    flex-basis: 70%;
+    padding-left: 20px;
+}
+
+/* ご利用案内セクション */
+#usage .flow-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+    gap: 40px; /* アイテム間の隙間 */
+}
+
+#usage .flow-list li {
+    flex: 1;
+    padding: 30px;
+    border: none; /* 枠線を削除 */
+    /* 複雑なborder-radiusで雲の形を表現 */
+    border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%;
+    position: relative;
+    text-align: center; /* テキストを中央揃えに */
+    background-color: rgba(80, 80, 80, 0.7); /* 背景を少し調整 */
+}
+
+/* 矢印のスタイル */
+#usage .flow-list li:not(:last-child)::after {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    right: -26px; /* gapの値に応じて調整 */
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #444;
+}
+
+#usage .flow-list h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#usage .flow-list p {
+    font-size: 0.9rem;
+}
+
+/* Q&Aセクション */
+#faq .faq-container {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: left;
+}
+
+#faq .faq-item {
+    border-bottom: 1px solid #444;
+}
+
+#faq .faq-item:first-of-type {
+    border-top: 1px solid #444;
+}
+
+#faq summary {
+    display: block; /* デフォルトのマーカーを消すため */
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+#faq summary::-webkit-details-marker {
+    display: none; /* Chrome, Safariのマーカーを消す */
+}
+
+/* 開閉アイコン(+) */
+#faq summary::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+#faq details[open] summary::after {
+    content: '-';
+}
+
+#faq .faq-answer {
+    padding: 0 20px 20px;
+    background-color: #222; /* 回答の背景を少し変える */
+}
+
+/* アクセスセクション */
+#access .access-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+#access .map-container,
+#access .address-container {
+    flex: 1;
+}
+
+#access .map-container {
+    min-height: 300px; /* iframeが読み込まれるまでの高さ */
+    background-color: #333; /* iframe読み込み中の背景色 */
+    border-radius: 5px;
+}
+
+/* ユーザーが貼り付けるiframeのためのスタイル */
+#access .map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 5px;
+}
+
+#access .address-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+#hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* ヘッダーの高さ分を差し引く */
+    padding-top: 80px; /* ヘッダーの高さ分のパディングを追加 */
+}
+
+#hero h1 {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* フッター */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #000;
+    color: #FFFFFB; /* 全体の文字色に統一 */
+    font-size: 0.9rem;
+}
+
+/* --- Header Styles --- */
+header {
+    position: fixed; /* 親要素を基準に配置 -> 画面に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: none; /* 背景を完全にリセット */
+    padding: 0; /* paddingを削除 */
+    z-index: 1000; /* 他の要素より手前に表示 */
+    transition: background-color 0.3s; /* 背景色の変化を滑らかに */
+}
+
+/* スクロール時のヘッダーのスタイル */
+header.header-scrolled {
+    background-color: transparent; /* スクロール時に背景色を透明にする */
+    box-shadow: none;
+}
+
+/* メインコンテンツがヘッダーの下に隠れないようにする */
+main {
+    padding-top: 80px; /* ヘッダーの高さに合わせて調整 */
+    position: relative;
+    z-index: 1;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 30px; /* こちらにpaddingを移動 */
+    background: none; /* 背景をリセット */
+}
+
+.logo {
+    display: block; /* 画像ロゴのためにブロック要素に */
+    width: 120px; /* ロゴの幅 */
+    height: 40px; /* ロゴの高さ */
+    /* background-image: url('path/to/your/logo.png'); */ /* ロゴ画像がある場合はこのコメントを外してパスを指定 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #FFFFFB;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: none; /* 通常時は非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu.nav-open {
+    display: flex; /* 開いた時に表示 */
+}
+
+.nav-menu a {
+    color: #FFFFFB;
+    text-decoration: none;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #aaa;
+}
+
+.hamburger-menu {
+    display: block; /* 常に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFB;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+    /* ハンバーガーメニューが開いた時の「×」印アニメーション */
+    .hamburger-menu.nav-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.nav-open span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.nav-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    h1 {
+        font-size: 2.5rem; /* h1の基本サイズを調整 */
+    }
+
+    h2 {
+        font-size: 2rem; /* h2の基本サイズを調整 */
+    }
+
+    section {
+        padding: 60px 20px; /* セクションの余白を調整 */
+    }
+
+    /* 施設紹介セクションのレイアウトを縦積みに */
+    #facility .room-container,
+    #facility .room-container.layout-reverse {
+        flex-direction: column;
+    }
+
+    /* ご利用案内セクションのレイアウトを縦積みに */
+    #usage .flow-list {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #usage .flow-list li:not(:last-child)::after {
+        content: '▼'; /* 矢印を下に変更 */
+        top: auto;
+        bottom: -26px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* アクセスセクションのレイアウトを縦積みに */
+    #access .access-container {
+        flex-direction: column;
+    }
+
+    #access .address-container h3 {
+        text-align: center;
+    }
+
+    /* モバイル用背景画像 */
+    body {
+        background-image: url('assets/main-img-mob.jpg');
+        background-size: contain; /* 画像全体を表示 */
+        background-position: center;
+        background-repeat: no-repeat; /* 画像を繰り返さない */
+    }
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Underline animation */
+.underline-animation {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* 線の太さ */
+    background-color: #FFFFFB; /* 線の色をサイトの基本文字色に合わせる */
+    transition: width 0.4s ease-out; /* アニメーションの設定 */
+}
+
+.underline-animation:hover::after {
+    width: 100%;
+}
+
+/* --- Header Icon Buttons --- */
+.header-icon-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* アイコン間の隙間 */
+    margin-left: auto; /* 右寄せにする */
+    margin-right: 20px; /* ハンバーガーメニューとの間に少し隙間を設ける */
+}
+
+.icon-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.icon-button svg {
+    fill: #FFFFFB; /* アイコンの色 */
+    transition: fill 0.3s;
+}
+
+/* レスポンシブ調整: ハンバーガーメニューが有効になるブレークポイントでアイコンボタンを少し調整 */
+@media (max-width: 768px) {
+    .header-icon-buttons {
+        gap: 10px;
+        margin-right: 15px;
+    }
+    .icon-button svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* --- Usage Section Buttons --- */
+.usage-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* ボタン間の隙間 */
+    margin-top: 50px; /* flow-containerとの間に余白 */
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    min-width: 200px; /* ボタンの最小幅 */
+    text-align: center;
+}
+
+.btn--primary {
+    background-color: rgba(0, 185, 0, 0.5); /* LINEカラーを参考に、透明度50% */
+    color: #FFFFFB;
+    border: 1px solid #00b900;
+}
+
+.btn--primary:hover {
+    background-color: rgba(0, 140, 0, 0.5); /* ホバー時も透明度50% */
+    transform: translateY(-3px);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: #FFFFFB;
+    border: 1px solid #FFFFFB;
+}
+
+.btn--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* --- Hero Reserve Button --- */
+.hero-reserve-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%; /* モコモコした形 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 999; /* 他の要素より手前に表示 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-reserve-button:hover {
+    transform: scale(1.05); /* ホバーで少し拡大 */
+}
+
+/* モバイルでの調整 */
+@media (max-width: 768px) {
+    .hero-reserve-button {
+        width: 100px;
+        height: 100px;
+        bottom: 20px;
+        left: 20px;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Concept Wave SVG --- */
+.concept-wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0; /* コンテンツの下に配置 */
+    display: none; /* 一時的に非表示 */
+}
+
+#concept {
+    position: relative; /* SVGのposition:absoluteの基準点にする */
+    overflow: hidden; /* SVGがはみ出さないように */
+}
+
+#concept h2,
+#concept p {
+    position: relative;
+    z-index: 1; /* SVGより手前に表示 */
+}
+
+/* --- Custom Relax Animation --- */
+@keyframes relax-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-aos="relax-animation"] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos="relax-animation"].aos-animate {
+  animation-name: relax-animation;
+  animation-duration: 1.5s; /* アニメーションの速さ */
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+
+/* poyopoyo アニメーション */
+@keyframes poyopoyo {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+[data-aos="poyopoyo"] {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+[data-aos="poyopoyo"].aos-animate {
+  animation-name: poyopoyo;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+/* fuwafuwa アニメーション */
+@keyframes fuwafuwa {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-fuwafuwa.aos-animate {
+  animation-name: fuwafuwa;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
