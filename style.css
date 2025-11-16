@@ -101,22 +101,42 @@ section {
     text-align: left; /* 見出しも左揃えに */
 }
 
-/* 施設紹介セクション */
+/* 施設紹介セクション - 横スクロール対応 */
+#facility {
+    padding: 0; /* 横スクロールのためセクション自体のpaddingは削除 */
+    overflow: hidden; /* はみ出した要素を隠す */
+}
+
+#facility h2 {
+    padding: 100px 20px 50px; /* 見出しの上下に余白を再設定 */
+}
+
+.facility-horizontal-scroll {
+    height: 100vh; /* スクロールコンテナの高さをビューポートに合わせる */
+    width: 100%;
+}
+
+.facility-track {
+    display: flex;
+    width: 700%; /* 7つの .room-container を格納するため */
+    height: 100%;
+}
+
 #facility .room-container {
+    width: 100vw; /* 各アイテムが画面幅全体を占めるように */
+    height: 100%;
     display: flex;
     align-items: center;
-    gap: 40px; /* 画像とテキストの間隔 */
-    margin-top: 60px;
+    gap: 40px;
+    padding: 0 5vw; /* 左右の余白 */
+    flex-shrink: 0; /* アイテムが縮まないようにする */
     text-align: left;
+    margin-top: 0; /* 上部のマージンをリセット */
 }
 
-#facility .room-container:first-of-type {
-    margin-top: 50px;
-}
-
-/* 左右反転レイアウト */
+/* 左右反転レイアウトは横スクロールでは不要なため、flex-directionをリセット */
 #facility .room-container.layout-reverse {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 #facility .room-image,

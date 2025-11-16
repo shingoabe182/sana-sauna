@@ -6,6 +6,8 @@
     <title>サウナ施設HP</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <div class="site-wrapper">
@@ -81,94 +83,98 @@
         <!-- 施設紹介 -->
         <section id="facility">
             <h2 data-aos="fade-up" data-aos-duration="1000">施設紹介</h2>
-            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500">
-                <div class="room-image">
-                    <img src="assets/sauna-room1.jpg" alt="サウナルームの画像">
-                </div>
-                <div class="room-description">
-                    <h3>サウナルーム</h3>
-                    <p>ここにサウナルームの説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
-                    <dl class="room-specs">
-                        <div><dt>室温</dt><dd>90℃ 〜 100℃</dd></div>
-                        <div><dt>収容人数</dt><dd>2名</dd></div>
-                        <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/sauna-room2.jpg" alt="サウナルーム2の画像">
-                </div>
-                <div class="room-description">
-                    <h3>サウナルーム２</h3>
-                    <p>ここにサウナルーム２の説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
-                    <dl class="room-specs">
-                        <div><dt>室温</dt><dd>80℃ 〜 90℃</dd></div>
-                        <div><dt>収容人数</dt><dd>2名</dd></div>
-                        <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/water-bath1.jpg" alt="水風呂の画像">
-                </div>
-                <div class="room-description">
-                    <h3>水風呂</h3>
-                    <p>ここに水風呂の説明文が入ります。サウナで火照った体を瞬時にクールダウンさせ、究極の「ととのい」へと導きます。</p>
-                    <dl class="room-specs">
-                        <div><dt>水温</dt><dd>15℃</dd></div>
-                        <div><dt>深さ</dt><dd>100cm</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/relax-room.jpg" alt="休憩スペースの画像">
-                </div>
-                <div class="room-description">
-                    <h3>休憩スペース</h3>
-                    <p>ここに休憩スペースの説明文が入ります。心と体を落ち着かせるための特別な空間です。</p>
-                    <dl class="room-specs">
-                        <div><dt>設備</dt><dd>リクライニングチェア、ウォーターサーバー</dd></div>
-                        <div><dt>特徴</dt><dd>静寂な空間</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/powder-room.jpg" alt="パウダールームの画像">
-                </div>
-                <div class="room-description">
-                    <h3>パウダールーム</h3>
-                    <p>ここにパウダールームの説明文が入ります。各種アメニティを完備しております。</p>
-                    <dl class="room-specs">
-                        <div><dt>アメニティ</dt><dd>化粧水、乳液、ドライヤー</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container layout-reverse animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/rounge.jpg" alt="ラウンジの画像">
-                </div>
-                <div class="room-description">
-                    <h3>ラウンジ</h3>
-                    <p>ここにラウンジの説明文が入ります。サウナ後のリラックスタイムにご利用ください。</p>
-                    <dl class="room-specs">
-                        <div><dt>設備</dt><dd>ソファ、雑誌、ドリンクバー</dd></div>
-                    </dl>
-                </div>
-            </div>
-            <div class="room-container animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                <div class="room-image">
-                    <img src="assets/shop.jpg" alt="ショップの画像">
-                </div>
-                <div class="room-description">
-                    <h3>ショップ</h3>
-                    <p>ここにショップの説明文が入ります。オリジナルのサウナグッズを販売しております。</p>
-                    <dl class="room-specs">
-                        <div><dt>取扱商品</dt><dd>サウナハット、タオル、ステッカー</dd></div>
-                    </dl>
+            <div class="facility-horizontal-scroll">
+                <div class="facility-track">
+                    <div class="room-container">
+                        <div class="room-image">
+                            <img src="assets/sauna-room1.jpg" alt="サウナルームの画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>サウナルーム</h3>
+                            <p>ここにサウナルームの説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
+                            <dl class="room-specs">
+                                <div><dt>室温</dt><dd>90℃ 〜 100℃</dd></div>
+                                <div><dt>収容人数</dt><dd>2名</dd></div>
+                                <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container layout-reverse">
+                        <div class="room-image">
+                            <img src="assets/sauna-room2.jpg" alt="サウナルーム2の画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>サウナルーム２</h3>
+                            <p>ここにサウナルーム２の説明文が入ります。最高の素材と設計で、心身ともにリフレッシュできる空間を提供します。</p>
+                            <dl class="room-specs">
+                                <div><dt>室温</dt><dd>80℃ 〜 90℃</dd></div>
+                                <div><dt>収容人数</dt><dd>2名</dd></div>
+                                <div><dt>特徴</dt><dd>セルフロウリュ、寝サウナ</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container">
+                        <div class="room-image">
+                            <img src="assets/water-bath1.jpg" alt="水風呂の画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>水風呂</h3>
+                            <p>ここに水風呂の説明文が入ります。サウナで火照った体を瞬時にクールダウンさせ、究極の「ととのい」へと導きます。</p>
+                            <dl class="room-specs">
+                                <div><dt>水温</dt><dd>15℃</dd></div>
+                                <div><dt>深さ</dt><dd>100cm</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container layout-reverse">
+                        <div class="room-image">
+                            <img src="assets/relax-room.jpg" alt="休憩スペースの画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>休憩スペース</h3>
+                            <p>ここに休憩スペースの説明文が入ります。心と体を落ち着かせるための特別な空間です。</p>
+                            <dl class="room-specs">
+                                <div><dt>設備</dt><dd>リクライニングチェア、ウォーターサーバー</dd></div>
+                                <div><dt>特徴</dt><dd>静寂な空間</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container">
+                        <div class="room-image">
+                            <img src="assets/powder-room.jpg" alt="パウダールームの画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>パウダールーム</h3>
+                            <p>ここにパウダールームの説明文が入ります。各種アメニティを完備しております。</p>
+                            <dl class="room-specs">
+                                <div><dt>アメニティ</dt><dd>化粧水、乳液、ドライヤー</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container layout-reverse">
+                        <div class="room-image">
+                            <img src="assets/rounge.jpg" alt="ラウンジの画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>ラウンジ</h3>
+                            <p>ここにラウンジの説明文が入ります。サウナ後のリラックスタイムにご利用ください。</p>
+                            <dl class="room-specs">
+                                <div><dt>設備</dt><dd>ソファ、雑誌、ドリンクバー</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="room-container">
+                        <div class="room-image">
+                            <img src="assets/shop.jpg" alt="ショップの画像">
+                        </div>
+                        <div class="room-description">
+                            <h3>ショップ</h3>
+                            <p>ここにショップの説明文が入ります。オリジナルのサウナグッズを販売しております。</p>
+                            <dl class="room-specs">
+                                <div><dt>取扱商品</dt><dd>サウナハット、タオル、ステッカー</dd></div>
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -179,15 +185,15 @@
             <p>当サウナ施設は会員制になりますので、以下の手順でご利用ください。</p>
             <div class="flow-container">
                 <ol class="flow-list">
-                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000">
+                    <li class="animate-fuwafuwa">
                         <h4>STEP 1</h4>
                         <p><strong>会員登録</strong><br>まずは会員登録ページから、必要情報をご入力ください。</p>
                     </li>
-                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
+                    <li class="animate-fuwafuwa">
                         <h4>STEP 2</h4>
                         <p><strong>ご予約</strong><br>会員ページにログインし、ご希望の日時でご予約ください。</p>
                     </li>
-                    <li class="animate-fuwafuwa" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+                    <li class="animate-fuwafuwa">
                         <h4>STEP 3</h4>
                         <p><strong>ご来店</strong><br>予約時間にご来店ください。スタッフがご案内します。</p>
                     </li>
@@ -200,7 +206,7 @@
         </section>
 
         <!-- Q&A -->
-        <section id="faq" data-aos="fade-up" data-aos-duration="1000">
+        <section id="faq">
             <h2>Q&A</h2>
             <div class="faq-container">
                 <details class="faq-item">
@@ -225,7 +231,7 @@
         </section>
 
         <!-- アクセス -->
-        <section id="access" data-aos="fade-up" data-aos-duration="1000">
+        <section id="access">
             <h2>アクセス</h2>
             <div class="access-container">
                 <div class="map-container">
