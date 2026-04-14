@@ -71,6 +71,57 @@ section {
     border-bottom: none; /* セクション間の区切り線を非表示 */
 }
 
+/* NEWSセクション */
+#news .news-list {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: left;
+    background-color: rgba(68, 68, 68, 0.8);
+    border-radius: 15px;
+    padding: 20px 30px;
+}
+
+#news .news-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    border-bottom: 1px solid #666;
+}
+
+#news .news-item:last-child {
+    border-bottom: none;
+}
+
+#news .news-date {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+#news .news-title {
+    color: #FFFFFB;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+#news .news-title:hover {
+    color: #aaa;
+}
+
+@media (min-width: 768px) {
+    #news .news-item {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #news .news-date {
+        margin-bottom: 0;
+        margin-right: 30px;
+        min-width: 100px;
+    }
+}
+
 /* ABOUTセクション */
 #about .about-list {
     display: flex;
@@ -314,6 +365,7 @@ section {
 #hero h1 {
     position: relative;
     z-index: 1;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 
@@ -724,4 +776,16 @@ main {
   animation-duration: 2.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+/* h1のフェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
