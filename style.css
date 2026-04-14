@@ -528,11 +528,13 @@ main {
     }
 
     /* モバイル用背景画像 */
-    body {
+    .site-wrapper {
         background-image: url('assets/main-img-mob.jpg');
         background-size: contain; /* 画像全体を表示 */
-        background-position: center;
+        background-position: center top; /* 画像を上部に固定 */
         background-repeat: no-repeat; /* 画像を繰り返さない */
+        background-attachment: scroll; /* iOS等で背景が異常に拡大されるバグを防ぐ */
+        background-color: #1a1a1a; /* 画像の下の余白を背景色で埋める */
     }
 }
 @keyframes gradientAnimation {
