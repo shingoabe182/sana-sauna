@@ -21,11 +21,21 @@ body {
     position: relative;
     z-index: 0; /* 重ね順の基準点 */
     overflow-x: hidden; /* AOSアニメーションによる横スクロールを防止 */
+}
+
+/* 画面全体に表示しつつ、iOS等の拡大バグを回避するため、疑似要素で背景を作成 */
+.site-wrapper::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('assets/main-img.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     background-repeat: no-repeat;
+    z-index: -2; /* コンテンツや他の背景より後ろに配置 */
 }
 
 .site-wrapper::before {
@@ -528,13 +538,9 @@ main {
     }
 
     /* モバイル用背景画像 */
-    .site-wrapper {
+    .site-wrapper::after {
         background-image: url('assets/main-img-mob.jpg');
-        background-size: contain; /* 画像全体を表示 */
-        background-position: center top; /* 画像を上部に固定 */
-        background-repeat: no-repeat; /* 画像を繰り返さない */
-        background-attachment: scroll; /* iOS等で背景が異常に拡大されるバグを防ぐ */
-        background-color: #1a1a1a; /* 画像の下の余白を背景色で埋める */
+        /* background-size: cover はPC版から継承され、画面全体に表示されます */
     }
 }
 @keyframes gradientAnimation {
